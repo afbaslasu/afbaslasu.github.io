@@ -1,28 +1,12 @@
-# afbaslasu.github.io
-Repository for my research work - Programming/Science/Theology
+# React + Vite
 
-**ABOUT ME**
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-I'm a skilled web developer with 3 years of experience. Proven expertise in front-end development in web techs, including:
+Currently, two official plugins are available:
 
-Front-End: HTML5, CSS3, JavaScript || Framework: React || DevOps: Git.
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-Currently, I'm wielding back-end development into my tool kits:
+## Expanding the ESLint configuration
 
-Back-End: Node.js, Ruby on Rails || Framework: Angular || Databases: MySQL, MongoDB
-
-Other skill sets that I'm equipped with include:
-
-WordPress, App Lunch on Google Play Store
-
-Content Writing & related skills like SEO, social media content creation, etc
-
-Figma, Photoshop, Adobe Illustrator, Ms. Excel, Video Editing
-
-👨‍💼 I have been teaching Mathematics & Science for 22 years
-
-💻 I’m currently learning Back-End development
-
-👨‍🏫 Prolific author of numerous books, including Paradisiacal Mathematics; Past, Present & Future of Countries Written in the STARS
-
-💬 How to reach me: smile@c2harvard.com
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
