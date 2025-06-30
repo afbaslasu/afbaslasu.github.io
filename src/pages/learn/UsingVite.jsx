@@ -1,96 +1,97 @@
 // src/pages/learn/UsingVite.jsx
-import React, { useEffect, useState } from "react";
+import React from "react";
 import DocsLayout from "../../components/layout/DocsLayout";
 import Sidebar from "../../components/layout/Sidebar";
 import RightNav from "../../components/layout/RightNav";
+import { FaArrowRight } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
-const sections = [
-  { title: "Quick Start", href: "/learn/quick-start" },
-  { title: "Thinking in React", href: "/learn/thinking-in-react" },
-  { title: "Installation", href: "/learn/installation" },
-  { title: "Using Vite", href: "/learn/using-vite" },
+const headings = [
+  { id: "vite-intro", label: "Why Use Vite?" },
+  { id: "setup-vite", label: "Setting Up Vite in React 19" },
+  { id: "vite-benefits", label: "Vite Benefits" },
+  { id: "vite-tailwind", label: "Adding Tailwind CSS" },
 ];
 
-const onPageLinks = [
-  { id: "why-vite", label: "Why Vite?" },
-  { id: "vite-setup", label: "Setting Up with Vite" },
-  { id: "customizing", label: "Customizing the Setup" },
-];
-
-export default function UsingVitePage() {
-  const [showTop, setShowTop] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => setShowTop(window.scrollY > 300);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          const id = entry.target.getAttribute("id");
-          const navLink = document.querySelector(`a[href="#${id}"]`);
-          if (navLink) {
-            if (entry.isIntersecting) {
-              navLink.classList.add("text-blue-600", "font-semibold");
-            } else {
-              navLink.classList.remove("text-blue-600", "font-semibold");
-            }
-          }
-        });
-      },
-      { rootMargin: "0px 0px -70% 0px" }
-    );
-
-    onPageLinks.forEach((link) => {
-      const el = document.getElementById(link.id);
-      if (el) observer.observe(el);
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
+export default function UsingVite() {
   return (
-    <DocsLayout
-      sidebar={<Sidebar title="Learn" sections={sections} />}
-      rightnav={<RightNav links={onPageLinks} />}
-    >
+    <DocsLayout leftNav={<Sidebar />} rightNav={<RightNav links={headings} />}>
       <div className="prose dark:prose-invert max-w-4xl">
-        <h1 id="why-vite">Why Vite?</h1>
-        <p>
-          Vite is a fast, opinionated build tool that dramatically improves the
-          development experience. It leverages native ES modules and provides
-          near-instant HMR.
+        <h1 id="vite-intro" className="mb-4">
+          Using Vite with React
+        </h1>
+        <p className="mb-6">
+          <span className="text-indigo-600 font-semibold">Vite</span> is a
+          next-generation frontend tool that provides lightning-fast development
+          and optimized builds. It works seamlessly with{" "}
+          <span className="text-indigo-600 font-semibold">React 19</span> and
+          modern libraries like{" "}
+          <span className="text-indigo-600 font-semibold">Tailwind CSS</span>.
         </p>
 
-        <h2 id="vite-setup">Setting Up with Vite</h2>
-        <p>To set up a new React project using Vite, run:</p>
-        <pre>
-          <code>npm create vite@latest my-vite-app -- --template react</code>
+        <h2 id="setup-vite" className="mb-2">
+          Setting Up Vite in React 19
+        </h2>
+        <p className="mb-4">
+          You can create a new Vite + React project by running:
+        </p>
+        <pre className="bg-gray-800 text-white p-4 rounded-lg overflow-auto mb-6">
+          <code>npm create vite@latest my-app -- --template react</code>
         </pre>
-        <p>Then install dependencies and start your dev server:</p>
-        <pre>
-          <code>cd my-vite-app npm install npm run dev</code>
+        <p className="mb-6">Then install dependencies and start development:</p>
+        <pre className="bg-gray-800 text-white p-4 rounded-lg overflow-auto mb-6">
+          <code>{`cd my-app
+npm install
+npm run dev`}</code>
         </pre>
 
-        <h2 id="customizing">Customizing the Setup</h2>
-        <p>
-          You can enhance the setup by adding Tailwind CSS, ESLint, Prettier,
-          and React Router. Vite is highly extensible and has a thriving plugin
-          ecosystem.
+        <h2 id="vite-benefits" className="mb-2">
+          Vite Benefits
+        </h2>
+        <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 mb-6">
+          <li>⚡ Fast cold starts and hot module replacement</li>
+          <li>📦 Native ES Module support</li>
+          <li>🧪 Optimized build pipeline with Rollup</li>
+          <li>🔌 Easy integration with plugins and frameworks</li>
+        </ul>
+
+        <h2 id="vite-tailwind" className="mb-2">
+          Adding Tailwind CSS
+        </h2>
+        <p className="mb-4">Install Tailwind and dependencies:</p>
+        <pre className="bg-gray-800 text-white p-4 rounded-lg overflow-auto mb-6">
+          <code>{`npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p`}</code>
+        </pre>
+
+        <p className="mb-4">
+          Configure <code>tailwind.config.js</code> content:
         </p>
+        <pre className="bg-gray-800 text-white p-4 rounded-lg overflow-auto mb-6">
+          <code>{`content: [
+  "./index.html",
+  "./src/**/*.{js,ts,jsx,tsx}",
+],`}</code>
+        </pre>
+
+        <p className="mb-6">
+          Then import Tailwind in your <code>index.css</code>:
+        </p>
+        <pre className="bg-gray-800 text-white p-4 rounded-lg overflow-auto mb-6">
+          <code>{`@tailwind base;
+@tailwind components;
+@tailwind utilities;`}</code>
+        </pre>
+
+        <div className="mt-10 flex justify-end">
+          <Link
+            to="/learn/describing-the-ui"
+            className="inline-flex items-center gap-2 text-indigo-600 hover:underline text-lg"
+          >
+            Next: Describing the UI <FaArrowRight />
+          </Link>
+        </div>
       </div>
-
-      {showTop && (
-        <button
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="fixed bottom-6 right-6 bg-blue-600 text-white px-3 py-2 rounded shadow hover:bg-blue-700"
-        >
-          ↑ Top
-        </button>
-      )}
     </DocsLayout>
   );
 }

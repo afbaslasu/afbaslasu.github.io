@@ -7,6 +7,7 @@ const links = [
   { title: "Thinking in React", path: "/learn/thinking-in-react" },
   { title: "Installation", path: "/learn/installation" },
   { title: "Using Vite", path: "/learn/using-vite" },
+  { title: "Describing the UI", path: "/learn/describing-the-ui" },
 ];
 
 export default function Sidebar() {

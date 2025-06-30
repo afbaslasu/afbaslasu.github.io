@@ -1,88 +1,101 @@
 // src/pages/learn/Installation.jsx
-import React, { useEffect } from "react";
+import React from "react";
 import DocsLayout from "../../components/layout/DocsLayout";
 import Sidebar from "../../components/layout/Sidebar";
 import RightNav from "../../components/layout/RightNav";
+import { FaArrowRight } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
-const sections = [
-  { title: "Quick Start", href: "/learn/quick-start" },
-  { title: "Thinking in React", href: "/learn/thinking-in-react" },
-  { title: "Installation", href: "/learn/installation" },
-  { title: "Using Vite", href: "/learn/using-vite" },
+const headings = [
+  { id: "intro", label: "Introduction" },
+  { id: "setup-env", label: "Setting up the Environment" },
+  { id: "install-react", label: "Installing React with Vite" },
+  { id: "tailwind-setup", label: "Tailwind CSS Setup" },
+  { id: "next-steps", label: "Next Steps" },
 ];
 
-const onPageLinks = [
-  { id: "prerequisites", label: "Prerequisites" },
-  { id: "installing-node", label: "Installing Node.js" },
-  { id: "creating-project", label: "Creating a React App" },
-];
-
-export default function InstallationPage() {
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          const id = entry.target.getAttribute("id");
-          const navLink = document.querySelector(`a[href="#${id}"]`);
-          if (navLink) {
-            if (entry.isIntersecting) {
-              navLink.classList.add("text-blue-600", "font-semibold");
-            } else {
-              navLink.classList.remove("text-blue-600", "font-semibold");
-            }
-          }
-        });
-      },
-      { rootMargin: "0px 0px -70% 0px" }
-    );
-
-    onPageLinks.forEach((link) => {
-      const element = document.getElementById(link.id);
-      if (element) observer.observe(element);
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
+export default function Installation() {
   return (
-    <DocsLayout
-      sidebar={<Sidebar title="Learn" sections={sections} />}
-      rightnav={<RightNav links={onPageLinks} />}
-    >
+    <DocsLayout leftNav={<Sidebar />} rightNav={<RightNav links={headings} />}>
       <div className="prose dark:prose-invert max-w-4xl">
-        <h1 id="prerequisites">Prerequisites</h1>
-        <p>
-          Before installing React, make sure you have a basic understanding of
-          HTML, CSS, and JavaScript. Also, ensure your system supports Node.js
-          and npm.
+        <h1 id="intro" className="mb-4">
+          Installation
+        </h1>
+        <p className="mb-6">
+          This guide walks you through setting up a modern React environment
+          using Vite, with optional Tailwind CSS integration. By the end, you'll
+          be ready to begin building your first component-driven UI.
         </p>
 
-        <h2 id="installing-node">Installing Node.js</h2>
-        <p>
-          React development requires Node.js to manage packages. Visit
-          <a
-            href="https://nodejs.org"
-            target="_blank"
-            rel="noopener noreferrer"
+        <h2 id="setup-env" className="mb-2">
+          Setting up the Environment
+        </h2>
+        <p className="mb-4">
+          Ensure you have{" "}
+          <span className="text-indigo-600 font-semibold">Node.js</span> and{" "}
+          <span className="text-indigo-600 font-semibold">npm</span> installed.
+          You can verify by running:
+        </p>
+        <pre className="bg-gray-800 text-white p-4 rounded-lg overflow-auto mb-6">
+          <code>node -v npm -v</code>
+        </pre>
+
+        <h2 id="install-react" className="mb-2">
+          Installing React with Vite
+        </h2>
+        <p className="mb-4">To bootstrap a React project using Vite:</p>
+        <pre className="bg-gray-800 text-white p-4 rounded-lg overflow-auto mb-6">
+          <code>
+            npm create vite@latest my-react-app -- --template react cd
+            my-react-app npm install npm run dev
+          </code>
+        </pre>
+
+        <h2 id="tailwind-setup" className="mb-2">
+          Tailwind CSS Setup
+        </h2>
+        <p className="mb-4">
+          Tailwind CSS is a utility-first framework that works great with React.
+          To install it:
+        </p>
+        <pre className="bg-gray-800 text-white p-4 rounded-lg overflow-auto mb-4">
+          <code>
+            npm install -D tailwindcss postcss autoprefixer npx tailwindcss init
+            -p
+          </code>
+        </pre>
+        <p className="mb-4">
+          Then update your <code>tailwind.config.js</code> file:
+        </p>
+        <pre className="bg-gray-800 text-white p-4 rounded-lg overflow-auto mb-4">
+          <code>{`content: ["./index.html", "./src/**/*.{js,jsx,ts,tsx}"]`}</code>
+        </pre>
+        <p className="mb-4">
+          Add the Tailwind directives to your <code>index.css</code>:
+        </p>
+        <pre className="bg-gray-800 text-white p-4 rounded-lg overflow-auto mb-6">
+          <code>
+            @tailwind base; @tailwind components; @tailwind utilities;
+          </code>
+        </pre>
+
+        <h2 id="next-steps" className="mb-2">
+          Next Steps
+        </h2>
+        <p className="mb-6">
+          You are now ready to build your first React components. Continue with
+          the next section to learn how to think in React and design component
+          hierarchies.
+        </p>
+
+        <div className="mt-10 flex justify-end">
+          <Link
+            to="/learn/describing-the-ui"
+            className="inline-flex items-center gap-2 text-indigo-600 hover:underline text-lg"
           >
-            {" "}
-            nodejs.org{" "}
-          </a>
-          and install the latest LTS version.
-        </p>
-
-        <h2 id="creating-project">Creating a React App</h2>
-        <p>Once Node.js is installed, create a new React project using Vite:</p>
-        <pre>
-          <code>npm create vite@latest my-react-app -- --template react</code>
-        </pre>
-        <p>
-          Then navigate into the folder, install dependencies, and start your
-          dev server:
-        </p>
-        <pre>
-          <code>cd my-react-app npm install npm run dev</code>
-        </pre>
+            Next: Describing the UI <FaArrowRight />
+          </Link>
+        </div>
       </div>
     </DocsLayout>
   );

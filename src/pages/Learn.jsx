@@ -3,67 +3,131 @@ import React from "react";
 import DocsLayout from "../components/layout/DocsLayout";
 import Sidebar from "../components/layout/Sidebar";
 import RightNav from "../components/layout/RightNav";
-
-const sections = [
-  {
-    title: "Quick Start",
-    href: "/learn/quick-start",
-  },
-  {
-    title: "Thinking in React",
-    href: "/learn/thinking-in-react",
-  },
-  {
-    title: "Installation",
-    href: "/learn/installation",
-  },
-  {
-    title: "Using Vite",
-    href: "/learn/using-vite",
-  },
-];
+import { Link } from "react-router-dom";
+import { FaArrowRight } from "react-icons/fa";
 
 const onPageLinks = [
   { id: "overview", label: "Overview" },
   { id: "why-learn", label: "Why Learn React?" },
-  { id: "how-to-navigate", label: "How to Navigate" },
+  { id: "core-principles", label: "Core Principles" },
+  { id: "component-thinking", label: "Component Thinking" },
+  { id: "next-steps", label: "Next Steps" },
 ];
 
 export default function LearnPage() {
   return (
-    <>
-      <Sidebar></Sidebar>
-      <DocsLayout
-        sidebar={<Sidebar title="Learn" sections={sections} />}
-        rightnav={<RightNav links={onPageLinks} />}
-      >
-        <div className="prose dark:prose-invert max-w-4xl">
-          <h1 id="overview">Welcome to the React Learning Path</h1>
+    <DocsLayout
+      leftNav={<Sidebar />}
+      rightNav={<RightNav links={onPageLinks} />}
+    >
+      <div className="prose dark:prose-invert max-w-4xl space-y-12">
+        <section id="overview">
+          <h1 className="text-4xl font-bold text-indigo-600 dark:text-indigo-400">
+            Welcome to the React Learning Path
+          </h1>
           <p>
-            This section is your gateway to mastering React. It’s designed to
-            help you understand not only the syntax, but the thinking model
-            behind how React applications are built.
+            The <strong className="text-indigo-500">Learn</strong> section is
+            your gateway to mastering
+            <code className="text-pink-500"> React 19</code>. Whether you're a
+            beginner or brushing up, we guide you through core concepts, best
+            practices, and the mental model of thinking in components.
           </p>
+        </section>
 
-          <h2 id="why-learn">Why Learn React?</h2>
-          <p>
-            React is one of the most popular JavaScript libraries for building
-            modern, component-driven web applications. With React, you can build
-            user interfaces that are fast, reusable, and maintainable.
-          </p>
+        <section id="why-learn">
+          <h2 className="text-2xl font-semibold text-indigo-600">
+            Why Learn React?
+          </h2>
+          <ul className="list-disc pl-5 space-y-2">
+            <li>
+              <span className="text-indigo-500 font-medium">
+                Component-Based:
+              </span>{" "}
+              Build encapsulated UI pieces that manage their own state.
+            </li>
+            <li>
+              <span className="text-indigo-500 font-medium">Declarative:</span>{" "}
+              Describe what you want to see, and React updates the UI
+              accordingly.
+            </li>
+            <li>
+              <span className="text-indigo-500 font-medium">Ecosystem:</span>{" "}
+              Leverage powerful tools like
+              <code>react-router</code>, <code>react-query</code>, and more.
+            </li>
+          </ul>
+        </section>
 
-          <h2 id="how-to-navigate">How to Navigate This Guide</h2>
+        <section id="core-principles">
+          <h2 className="text-2xl font-semibold text-indigo-600">
+            Core Principles
+          </h2>
+          <p>React revolves around a few core principles:</p>
+          <ul className="list-disc pl-5 space-y-2">
+            <li>
+              <strong className="text-pink-500">UI = f(state)</strong> – your UI
+              is a function of application state.
+            </li>
+            <li>
+              <strong className="text-pink-500">
+                Unidirectional data flow
+              </strong>{" "}
+              – props move data down the component tree.
+            </li>
+            <li>
+              <strong className="text-pink-500">Composition</strong> – build
+              complex UIs from small components.
+            </li>
+          </ul>
+
+          <pre>
+            <code className="language-js">
+              {`function Welcome({ name }) {
+  return <h1>Hello, {name}!</h1>;
+}`}{" "}
+            </code>
+          </pre>
+        </section>
+
+        <section id="component-thinking">
+          <h2 className="text-2xl font-semibold text-indigo-600">
+            Component Thinking
+          </h2>
           <p>
-            The Learn section is divided into practical tutorials. Each topic
-            builds on the previous one to help you steadily gain confidence. Use
-            the left sidebar to navigate major topics and the right sidebar to
-            jump between subtopics.
+            Think of your UI as a tree of components. Break down UIs into small,
+            reusable parts that can be composed together.
           </p>
-        </div>
-        
-      </DocsLayout>
-      
-      
-    </>
+          <pre>
+            <code className="language-js">
+              {`function App() {
+  return (
+    <div>
+      <Navbar />
+      <MainContent />
+      <Footer />
+    </div>
+  );
+}`}{" "}
+            </code>
+          </pre>
+        </section>
+
+        <section id="next-steps">
+          <h2 className="text-2xl font-semibold text-indigo-600">Next Steps</h2>
+          <p>
+            You’re ready to dive deeper! Follow the next subpage to get hands-on
+            with a practical starting point.
+          </p>
+          <div className=" text-right">
+            <Link
+              to="/learn/quick-start"
+              className="inline-flex items-center px-4 py-2 text-white bg-indigo-600 hover:bg-indigo-700 rounded-md shadow-md mt-4"
+            >
+              Quick Start <FaArrowRight className="ml-2" />
+            </Link>
+          </div>
+        </section>
+      </div>
+    </DocsLayout>
   );
 }

@@ -15,6 +15,7 @@ const QuickStart = lazy(() => import("./pages/learn/QuickStart"));
 const Installation = lazy(() => import("./pages/learn/Installation"));
 const ThinkingInReact = lazy(() => import("./pages/learn/ThinkingInReact"));
 const UsingVite = lazy(() => import("./pages/learn/UsingVite"));
+const DescribingTheUI = lazy(() => import("./pages/learn/DescribingTheUI"));
 const Reference = lazy(() => import("./pages/Reference"));
 const ComponentRef = lazy(() => import("./pages/reference/Component"));
 const HooksRef = lazy(() => import("./pages/reference/Hooks"));
@@ -41,6 +42,7 @@ export default function App() {
             element={<ThinkingInReact />}
           />
           <Route path="/learn/using-vite" element={<UsingVite />} />
+          <Route path="/learn/describing-the-ui" element={<DescribingTheUI />} />
           <Route path="/reference" element={<Reference />} />
           <Route path="/reference/component" element={<ComponentRef />} />
           <Route path="/reference/hooks" element={<HooksRef />} />
