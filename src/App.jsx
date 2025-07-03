@@ -1,5 +1,6 @@
 // App.jsx (Updated to wire all layouts, pages, routes)
 import React, { Suspense, lazy } from "react";
+import ScrollToTop from "./ScrollToTop";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -31,6 +32,7 @@ const Blogs = lazy(() => import("./pages/community/Blogs"));
 export default function App() {
   return (
     <Router>
+      <ScrollToTop />
       <Navbar />
       <Suspense fallback={<Spinner />}>
         <Routes>
