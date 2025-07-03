@@ -8,6 +8,7 @@ import NotFound from "./pages/NotFound";
 
 // Lazy-loaded route components
 const Home = lazy(() => import("./pages/Home"));
+const Resume = lazy(() => import("./pages/Resume"));
 const Blog = lazy(() => import("./pages/Blog"));
 const BlogPost = lazy(() => import("./pages/blog/[slug]"));
 const Learn = lazy(() => import("./pages/Learn"));
@@ -32,6 +33,7 @@ export default function App() {
       <Suspense fallback={<Spinner />}>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/resume" element={<Resume />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/learn" element={<Learn />} />
@@ -42,7 +44,10 @@ export default function App() {
             element={<ThinkingInReact />}
           />
           <Route path="/learn/using-vite" element={<UsingVite />} />
-          <Route path="/learn/describing-the-ui" element={<DescribingTheUI />} />
+          <Route
+            path="/learn/describing-the-ui"
+            element={<DescribingTheUI />}
+          />
           <Route path="/reference" element={<Reference />} />
           <Route path="/reference/component" element={<ComponentRef />} />
           <Route path="/reference/hooks" element={<HooksRef />} />

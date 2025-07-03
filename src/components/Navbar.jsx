@@ -23,6 +23,7 @@ export default function Navbar({ theme, setTheme }) {
 
   const pages = [
     { title: "Home", path: "/" },
+    { title: "Resume", path: "/resume" },
     { title: "Blog", path: "/blog" },
     { title: "Learn React", path: "/learn" },
     { title: "API Reference", path: "/reference" },
@@ -53,6 +54,12 @@ export default function Navbar({ theme, setTheme }) {
 
         {/* Desktop Nav */}
         <div className="hidden md:flex md:items-center md:space-x-4">
+          <Link
+            to="/resume"
+            className="hover:text-indigo-500 dark:text-gray-200"
+          >
+            Resume
+          </Link>
           <Link
             to="/learn"
             className="hover:text-indigo-500 dark:text-gray-200"
@@ -134,6 +141,12 @@ export default function Navbar({ theme, setTheme }) {
       {/* Mobile Menu */}
       {menuOpen && (
         <div className="md:hidden px-4 py-2 space-y-2 bg-white dark:bg-gray-900">
+          <Link
+            to="/resume"
+            className="block hover:text-indigo-500 dark:text-gray-200"
+          >
+            Resume
+          </Link>
           <Link
             to="/learn"
             className="block hover:text-indigo-500 dark:text-gray-200"
