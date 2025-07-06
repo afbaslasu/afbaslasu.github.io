@@ -52,7 +52,7 @@ export default function ResumePro() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200 py-12 px-6 md:px-16 lg:px-24 transition-colors">
+    <div className="min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200 py-12 px-6 md:px-16 lg:px-48 transition-colors">
       {/* Header */}
       <div className="relative text-center mb-4">
         {/* Theme & Print Controls */}
@@ -312,17 +312,17 @@ export default function ResumePro() {
                 role: "Head of School",
                 org: "Surestart Schools",
                 contact: "08034530217",
-                link: "https://surestartabuja.com",
               },
               {
                 name: "Phrank Shaibu",
-                role: "Proprietor, Chevron Ltd.",
+                role: "C S.A(Atiku Abubakar)/Proprietor",
+                org: "Cradle2Harvard College",
                 contact: "08031964937",
-                email: "jiga@chevron.com",
               },
               {
                 name: "Dr. Jimoh Garba",
                 role: "Senior Specialist",
+                org: "Chevron Ltd., Nigeria",
                 contact: "08057388759",
               },
             ].map((ref, idx) => (
