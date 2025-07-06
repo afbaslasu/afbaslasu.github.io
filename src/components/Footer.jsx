@@ -101,8 +101,11 @@ export default function Footer() {
         </div>
         <div className="mt-8 text-center text-xs">
           <p>
-            &copy; {new Date().getFullYear()} React Clone. Built with ❤️ by AI +
-            Developer.
+            &copy; {new Date().getFullYear()} React Clone. Built with ❤️ by{" "}
+            <span className="text-gray-900 dark:text-white font-semibold">
+              Ismail Ibadehin
+            </span>{" "}
+            (CEO smileLink Inc.).
           </p>
         </div>
       </div>
