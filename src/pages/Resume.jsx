@@ -368,7 +368,7 @@ export default function ResumePro() {
           to="/resume-detail"
           className="inline-flex items-center space-x-2 text-indigo-600 dark:text-indigo-400 hover:underline"
         >
-          <span>Next</span>
+          <span>Detail Resume</span>
           <FaArrowRight />
         </Link>
       </div>

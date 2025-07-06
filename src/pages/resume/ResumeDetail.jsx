@@ -1,5 +1,6 @@
 // Resume.jsx
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 import {
   FaGraduationCap,
   FaBriefcase,
@@ -7,6 +8,12 @@ import {
   FaCode,
   FaChartBar,
   FaUserFriends,
+  FaChartLine,
+  FaLaptopCode,
+  FaUsers,
+  FaUser,
+  FaLightbulb,
+  FaExternalLinkAlt,
 } from "react-icons/fa";
 
 const Resume = () => {
@@ -16,10 +23,15 @@ const Resume = () => {
     { id: "all", label: "All", icon: <FaChartBar /> },
     { id: "education", label: "Education", icon: <FaGraduationCap /> },
     { id: "experience", label: "Experience", icon: <FaBriefcase /> },
+    { id: "about", label: "About", icon: <FaBriefcase /> },
     { id: "skills", label: "Skills", icon: <FaTools /> },
     { id: "projects", label: "Projects", icon: <FaCode /> },
     { id: "references", label: "References", icon: <FaUserFriends /> },
   ];
+
+  const handlePrint = () => {
+    window.print();
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 p-4 md:p-8">
@@ -79,6 +91,12 @@ const Resume = () => {
               {tab.label}
             </button>
           ))}
+          <button
+            onClick={handlePrint}
+            className="p-2 rounded-full bg-green-800 text-white px-4 dark:bg-gray-800 shadow hover:ring"
+          >
+            Print
+          </button>
         </div>
 
         {/* Main Content */}
@@ -142,7 +160,6 @@ const Resume = () => {
                     company="Surestart Schools, Abuja."
                     contact="08034530217"
                     link="https://surestartabuja.com"
-                    note="SMILELINK INC. Educational Website 2019"
                   />
 
                   <ReferenceCard
@@ -159,6 +176,38 @@ const Resume = () => {
                     company="Chevron Ltd., Lagos."
                     contact="jiga@chevron.com"
                     additionalContact="08057388759"
+                  />
+                </div>
+              </SectionCard>
+            )}
+            {/* Projects Section */}
+            {(activeTab === "all" || activeTab === "projects") && (
+              <SectionCard title="ADDITIONAL INFO" icon={<FaCode />}>
+                <h3 className="text-lg font-bold mb-4 flex items-center">
+                  <FaCode className="mr-2 text-indigo-600" />
+                  RECENT COMPLETED PROJECT
+                </h3>
+
+                <div className="flex flex-col gap-6">
+                  {" "}
+                  {/* Changed from grid to flex-col */}
+                  <ProjectCard
+                    name="Cradle2Harvard"
+                    description="School Website"
+                    year="2021"
+                    color="bg-indigo-800"
+                  />
+                  <ProjectCard
+                    name="SURESTART"
+                    description="School Website"
+                    year="2020"
+                    color="bg-blue-800"
+                  />
+                  <ProjectCard
+                    name="SMILELINK INC"
+                    description="Educational Website"
+                    year="2019"
+                    color="bg-orange-800"
                   />
                 </div>
               </SectionCard>
@@ -272,31 +321,191 @@ const Resume = () => {
                 </div>
               </SectionCard>
             )}
+            {/* About Me Section */}
+            {(activeTab === "all" || activeTab === "about") && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="mb-10"
+              >
+                <SectionCard
+                  title="ABOUT ME"
+                  icon={<FaUser className="text-indigo-600" />}
+                >
+                  <div className="space-y-4 text-gray-700">
+                    <p>
+                      I am excited to express my interest in the{" "}
+                      <strong className="text-indigo-700">
+                        Mathematics teaching position
+                      </strong>{" "}
+                      at your esteemed citadel of learning. With a dynamic
+                      background that spans{" "}
+                      <strong className="text-indigo-700">
+                        teaching, website design, and graphics design
+                      </strong>
+                      , I bring a unique blend of subject matter expertise and
+                      technological innovation.
+                    </p>
 
-            {/* Projects Section */}
-            {(activeTab === "all" || activeTab === "projects") && (
-              <SectionCard title="ADDITIONAL INFO" icon={<FaCode />}>
-                <h3 className="text-xl font-bold mb-4 flex items-center">
-                  <FaCode className="mr-2 text-indigo-600" />
-                  RECENT COMPLETED PROJECT
-                </h3>
+                    <div className="flex items-start mt-6">
+                      <FaChartLine className="text-green-500 mt-1 mr-3 flex-shrink-0" />
+                      <p>
+                        I have consistently achieved{" "}
+                        <strong className="text-green-600">
+                          excellent results
+                        </strong>{" "}
+                        throughout my career, preparing students across five
+                        states to excel in{" "}
+                        <strong className="text-green-600">
+                          WAEC, UTME, and IGCSE
+                        </strong>{" "}
+                        examinations. My approach is rooted in a genuine passion
+                        for education, where I combine enthusiasm with a
+                        commitment to unlocking each student's full potential.
+                      </p>
+                    </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <ProjectCard
-                    name="SURESTART"
-                    description="School Website"
-                    year="2020"
-                    color="bg-blue-500"
-                  />
+                    <h3 className="text-xl font-bold mt-8 mb-4 flex items-center text-indigo-800">
+                      <FaLightbulb className="mr-2 text-yellow-500" />
+                      Key highlights of my experience:
+                    </h3>
 
-                  <ProjectCard
-                    name="Cradle2Harvard"
-                    description="School Website"
-                    year="2021"
-                    color="bg-indigo-500"
-                  />
-                </div>
-              </SectionCard>
+                    <ul className="space-y-3 pl-2">
+                      <motion.li
+                        whileHover={{ scale: 1.02 }}
+                        className="flex items-start p-3 bg-indigo-50 rounded-lg"
+                      >
+                        <FaGraduationCap className="text-indigo-500 mt-1 mr-3 flex-shrink-0" />
+                        <span>
+                          A{" "}
+                          <strong className="text-indigo-700">
+                            personable and dedicated teaching style
+                          </strong>{" "}
+                          that drives continuous student improvement
+                        </span>
+                      </motion.li>
+
+                      <motion.li
+                        whileHover={{ scale: 1.02 }}
+                        className="flex items-start p-3 bg-blue-50 rounded-lg"
+                      >
+                        <FaLaptopCode className="text-blue-500 mt-1 mr-3 flex-shrink-0" />
+                        <span>
+                          Expertise in delivering{" "}
+                          <strong className="text-blue-700">
+                            engaging presentations
+                          </strong>{" "}
+                          and integrating digital tools; proficient in
+                          <span className="inline-flex flex-wrap gap-2 ml-2">
+                            <span className="px-2 py-1 bg-blue-100 text-blue-800 rounded-md">
+                              Microsoft Excel
+                            </span>
+                            <span className="px-2 py-1 bg-blue-100 text-blue-800 rounded-md">
+                              Word
+                            </span>
+                            <span className="px-2 py-1 bg-blue-100 text-blue-800 rounded-md">
+                              PowerPoint
+                            </span>
+                            <span className="px-2 py-1 bg-blue-100 text-blue-800 rounded-md">
+                              Photoshop
+                            </span>
+                            <span className="px-2 py-1 bg-blue-100 text-blue-800 rounded-md">
+                              Adobe Illustrator
+                            </span>
+                            <span className="px-2 py-1 bg-blue-100 text-blue-800 rounded-md">
+                              HTML/CSS/JS
+                            </span>
+                          </span>
+                        </span>
+                      </motion.li>
+
+                      <motion.li
+                        whileHover={{ scale: 1.02 }}
+                        className="flex items-start p-3 bg-purple-50 rounded-lg"
+                      >
+                        <FaChartLine className="text-purple-500 mt-1 mr-3 flex-shrink-0" />
+                        <span>
+                          Successful organization of advanced tutorials in{" "}
+                          <strong className="text-purple-700">
+                            Calculus, Advanced Statistics, and Trigonometry
+                          </strong>{" "}
+                          for prestigious institutions:
+                          <span className="inline-flex flex-wrap gap-2 ml-2 mt-2">
+                            {[
+                              "Unilag",
+                              "Unilorin",
+                              "Bidapoly",
+                              "Laspotech",
+                              "Yabatech",
+                            ].map((school, index) => (
+                              <span
+                                key={index}
+                                className="px-3 py-1 bg-purple-100 text-purple-800 rounded-full"
+                              >
+                                {school}
+                              </span>
+                            ))}
+                          </span>
+                        </span>
+                      </motion.li>
+
+                      <motion.li
+                        whileHover={{ scale: 1.02 }}
+                        className="flex items-start p-3 bg-teal-50 rounded-lg"
+                      >
+                        <FaUsers className="text-teal-500 mt-1 mr-3 flex-shrink-0" />
+                        <span>
+                          Pioneering{" "}
+                          <strong className="text-teal-700">
+                            educational technology initiatives
+                          </strong>
+                          :
+                          <ul className="ml-5 mt-2 space-y-2 list-disc">
+                            <li>
+                              Relocated to Abuja in 2018 to join Surestart High
+                              School
+                            </li>
+                            <li>
+                              Created the school's website and configured Google
+                              Suite for Education during the pandemic
+                            </li>
+                            <li>
+                              Trained over{" "}
+                              <strong className="text-teal-700">
+                                100 staff members
+                              </strong>{" "}
+                              at Cradle2Harvard international school on Google
+                              Workspace for Education
+                            </li>
+                          </ul>
+                        </span>
+                      </motion.li>
+                    </ul>
+
+                    <div className="mt-6 p-4 bg-yellow-50 border-l-4 border-yellow-400 rounded">
+                      <p>
+                        I invite you to explore my CV for further details about
+                        my achievements:
+                        <a
+                          href="https://github.com/afbaslasu"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="ml-2 inline-flex items-center font-bold text-indigo-700 hover:text-indigo-900"
+                        >
+                          github.com/afbaslasu
+                          <FaExternalLinkAlt className="ml-1 text-sm" />
+                        </a>
+                      </p>
+                      <p className="mt-2">
+                        I am eager to bring my skills and dedication to your
+                        school and look forward to the opportunity to discuss
+                        how I can contribute to your academic community.
+                      </p>
+                    </div>
+                  </div>
+                </SectionCard>
+              </motion.div>
             )}
           </div>
         </div>
@@ -304,9 +513,9 @@ const Resume = () => {
         {/* Footer */}
         <footer className="mt-12 text-center text-gray-600 py-6 border-t border-gray-200">
           <p>
-            © {new Date().getFullYear()} Ismail Ibadehin. All rights reserved.
+            © {new Date().getFullYear()} Ismail Ibadehin (CEO smileLink Inc.). All rights reserved.
           </p>
-          <p className="mt-2 text-sm">Designed with React and Tailwind CSS</p>
+          <p className="mt-2 text-sm">Designed using the following frontend tools: HTML5, JavaScripts, React and Tailwind CSS</p>
         </footer>
       </div>
     </div>
@@ -435,5 +644,7 @@ const ReferenceCard = ({
     )}
   </div>
 );
+
+
 
 export default Resume;
