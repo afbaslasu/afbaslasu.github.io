@@ -14,7 +14,32 @@ import {
   FaUser,
   FaLightbulb,
   FaExternalLinkAlt,
+  FaHtml5,
+  FaJs,
+  FaReact,
+  FaCss3Alt,
+  FaGithub,
+  FaHeart,
 } from "react-icons/fa";
+
+// TechBadge component definition (moved to top level)
+const TechBadge = ({ icon, name, highlight = false }) => (
+  <motion.div
+    whileHover={{ y: -5 }}
+    className={`flex items-center px-4 py-2 rounded-full ${
+      highlight ? "bg-indigo-100 border border-indigo-200" : "bg-gray-100"
+    }`}
+  >
+    <span className="text-xl mr-2">{icon}</span>
+    <span
+      className={`font-medium ${
+        highlight ? "text-indigo-700" : "text-gray-700"
+      }`}
+    >
+      {name}
+    </span>
+  </motion.div>
+);
 
 const Resume = () => {
   const [activeTab, setActiveTab] = useState("all");
@@ -189,8 +214,6 @@ const Resume = () => {
                 </h3>
 
                 <div className="flex flex-col gap-6">
-                  {" "}
-                  {/* Changed from grid to flex-col */}
                   <ProjectCard
                     name="Cradle2Harvard"
                     description="School Website"
@@ -463,8 +486,10 @@ const Resume = () => {
                           :
                           <ul className="ml-5 mt-2 space-y-2 list-disc">
                             <li>
-                              Relocated to Abuja in 2018 to join Surestart High
-                              School
+                              Relocated to Abuja in 2018 to join{" "}
+                              <span className="text-blue-600 font-semibold">
+                                Surestart High School
+                              </span>
                             </li>
                             <li>
                               Created the school's website and configured Google
@@ -475,8 +500,11 @@ const Resume = () => {
                               <strong className="text-teal-700">
                                 100 staff members
                               </strong>{" "}
-                              at Cradle2Harvard international school on Google
-                              Workspace for Education
+                              at{" "}
+                              <span className="text-blue-600 font-semibold">
+                                Cradle2Harvard international school
+                              </span>{" "}
+                              on Google Workspace for Education
                             </li>
                           </ul>
                         </span>
@@ -488,12 +516,12 @@ const Resume = () => {
                         I invite you to explore my CV for further details about
                         my achievements:
                         <a
-                          href="https://github.com/afbaslasu"
+                          href="https://afbaslasu.github.io/"
                           target="_blank"
                           rel="noopener noreferrer"
                           className="ml-2 inline-flex items-center font-bold text-indigo-700 hover:text-indigo-900"
                         >
-                          github.com/afbaslasu
+                          afbaslasu.github.io/
                           <FaExternalLinkAlt className="ml-1 text-sm" />
                         </a>
                       </p>
@@ -511,12 +539,96 @@ const Resume = () => {
         </div>
 
         {/* Footer */}
-        <footer className="mt-12 text-center text-gray-600 py-6 border-t border-gray-200">
-          <p>
-            © {new Date().getFullYear()} Ismail Ibadehin (CEO smileLink Inc.). All rights reserved.
-          </p>
-          <p className="mt-2 text-sm">Designed using the following frontend tools: HTML5, JavaScripts, React and Tailwind CSS</p>
-        </footer>
+        <motion.footer
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.7 }}
+          className="mt-12 text-center text-gray-600 py-8 border-t border-gray-200 bg-gray-50"
+        >
+          <div className="max-w-4xl mx-auto px-4">
+            <p className="text-lg mb-3">
+              © {new Date().getFullYear()} Ismail Ibadehin (
+              <strong className="text-blue-600 font-semibold">
+                CEO smileLink Inc.
+              </strong>
+              ). All rights reserved.
+            </p>
+
+            <motion.div
+              whileHover={{ scale: 1.03 }}
+              className="inline-flex items-center bg-white rounded-full px-4 py-2 shadow-sm mb-4"
+            >
+              <FaHeart className="text-red-500 mr-2 animate-pulse" />
+              <span>Made with passion for education and technology</span>
+            </motion.div>
+
+            <div className="mt-4 mb-6">
+              <p className="font-medium mb-3">Designed and built with:</p>
+              <div className="flex flex-wrap justify-center gap-4">
+                <TechBadge
+                  icon={<FaHtml5 className="text-orange-500" />}
+                  name="HTML5"
+                />
+                <TechBadge
+                  icon={<FaJs className="text-yellow-400" />}
+                  name="JavaScript"
+                />
+                <TechBadge
+                  icon={<FaReact className="text-blue-500" />}
+                  name="React"
+                />
+                <TechBadge
+                  icon={<FaCss3Alt className="text-blue-600" />}
+                  name="Tailwind CSS"
+                  highlight={true}
+                />
+              </div>
+            </div>
+
+            <div className="mt-6 flex flex-col sm:flex-row justify-center gap-4">
+              <motion.a
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                href="https://github.com/afbaslasu"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center px-5 py-3 bg-gray-800 text-white rounded-lg hover:bg-gray-900 transition-colors"
+              >
+                <FaGithub className="mr-2 text-xl" />
+                <span>View Full Portfolio on GitHub</span>
+                <FaExternalLinkAlt className="ml-2 text-sm" />
+              </motion.a>
+
+              <motion.a
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                href="mailto:afbaslasu@gmail.com"
+                className="inline-flex items-center justify-center px-5 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5 mr-2"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                  />
+                </svg>
+                <span>Contact Me</span>
+              </motion.a>
+            </div>
+
+            <p className="mt-8 text-sm text-gray-500">
+              This site is continuously updated. Last deployment:{" "}
+              {new Date().toLocaleDateString()}
+            </p>
+          </div>
+        </motion.footer>
       </div>
     </div>
   );
@@ -644,7 +756,5 @@ const ReferenceCard = ({
     )}
   </div>
 );
-
-
 
 export default Resume;
