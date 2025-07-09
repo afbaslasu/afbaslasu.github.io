@@ -11,6 +11,7 @@ import NotFound from "./pages/NotFound";
 // Lazy-loaded route components
 const Home = lazy(() => import("./pages/Home"));
 const Resume = lazy(() => import("./pages/Resume"));
+const ReClone = lazy(() => import("./pages/ReClone"));
 const ResumeDetail = lazy(() => import("./pages/resume/ResumeDetail"));
 const Blog = lazy(() => import("./pages/Blog"));
 const BlogPost = lazy(() => import("./pages/blog/[slug]"));
@@ -38,6 +39,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/resume" element={<Resume />} />
+          <Route path="/reclone" element={<ReClone />} />
           <Route path="/resume-detail" element={<ResumeDetail />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />

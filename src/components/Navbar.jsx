@@ -24,6 +24,7 @@ export default function Navbar({ theme, setTheme }) {
   const pages = [
     { title: "Home", path: "/" },
     { title: "Resume", path: "/resume" },
+    { title: "ReClone", path: "/reclone" },
     { title: "Blog", path: "/blog" },
     { title: "Learn React", path: "/learn" },
     { title: "API Reference", path: "/reference" },
@@ -59,6 +60,12 @@ export default function Navbar({ theme, setTheme }) {
             className="hover:text-indigo-500 dark:text-gray-200"
           >
             Resume
+          </Link>
+          <Link
+            to="/reclone"
+            className="hover:text-indigo-500 dark:text-gray-200"
+          >
+            ReClone
           </Link>
           <Link
             to="/learn"
@@ -146,6 +153,12 @@ export default function Navbar({ theme, setTheme }) {
             className="block hover:text-indigo-500 dark:text-gray-200"
           >
             Resume
+          </Link>
+          <Link
+            to="/reclone"
+            className="block hover:text-indigo-500 dark:text-gray-200"
+          >
+            ReClone
           </Link>
           <Link
             to="/learn"
