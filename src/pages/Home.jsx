@@ -95,7 +95,7 @@ const Resume = () => {
             <div className="relative">
               <div className="border-2 border-dashed rounded-xl w-32 h-32 md:w-40 md:h-40">
                 <img
-                  src="/public/images/ismail-ibadehin-pics.png"
+                  src="/images/ismail-ibadehin-pics.png"
                   alt="ismail ibadehin"
                 />
               </div>
@@ -574,8 +574,8 @@ const Resume = () => {
 
                     <div className="mt-6 p-4 bg-yellow-50 border-l-4 border-yellow-400 rounded">
                       <p>
-                        I invite you to explore my Portfolio for further details about
-                        my achievements:
+                        I invite you to explore my Portfolio for further details
+                        about my achievements:
                         <a
                           href="https://portfolio-ultra-two.vercel.app/"
                           target="_blank"
