@@ -95,7 +95,7 @@ const Resume = () => {
             <div className="relative">
               <div className="border-2 border-dashed rounded-xl w-32 h-32 md:w-40 md:h-40">
                 <img
-                  src="../src/assets/images/ismail-ibadehin-pics.png"
+                  src="/public/images/ismail-ibadehin-pics.png"
                   alt="ismail ibadehin"
                 />
               </div>
@@ -574,15 +574,15 @@ const Resume = () => {
 
                     <div className="mt-6 p-4 bg-yellow-50 border-l-4 border-yellow-400 rounded">
                       <p>
-                        I invite you to explore my CV for further details about
+                        I invite you to explore my Portfolio for further details about
                         my achievements:
                         <a
-                          href="https://github.com/afbaslasu"
+                          href="https://portfolio-ultra-two.vercel.app/"
                           target="_blank"
                           rel="noopener noreferrer"
                           className="ml-2 inline-flex items-center font-bold text-indigo-700 hover:text-indigo-900"
                         >
-                          https://portfolio-ultra-two.vercel.app/
+                          My Portfolio
                           <FaExternalLinkAlt className="ml-1 text-sm" />
                         </a>
                       </p>

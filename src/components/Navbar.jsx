@@ -51,7 +51,7 @@ export default function Navbar({ theme, setTheme }) {
           to="/"
           className="text-xl font-bold text-indigo-600 dark:text-indigo-300"
         >
-          <img className="w-28" src="../src/assets/images/smilelink-logo-white-bg.png" alt="smilelink logo" />
+          <img className="w-28" src="/public/images/smilelink-logo-white-bg.png" alt="smilelink logo" />
         </Link>
 
         {/* Desktop Nav */}
