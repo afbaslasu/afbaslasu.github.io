@@ -105,7 +105,8 @@ export default function Footer() {
             <span className="text-gray-900 dark:text-white font-semibold">
               Ismail Ibadehin
             </span>{" "}
-            (CEO smileLink Inc.).
+            (CEO smileLink Inc.).{" "}
+            <span className="text-emerald-800">Tel: 081-6017-5628</span>
           </p>
         </div>
       </div>

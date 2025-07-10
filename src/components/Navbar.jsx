@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FiMenu, FiX, FiSun, FiMoon } from "react-icons/fi";
 
+
 export default function Navbar({ theme, setTheme }) {
   const [searchTerm, setSearchTerm] = useState("");
   const [showResults, setShowResults] = useState(false);
@@ -50,7 +51,7 @@ export default function Navbar({ theme, setTheme }) {
           to="/"
           className="text-xl font-bold text-indigo-600 dark:text-indigo-300"
         >
-          ReactClone
+          <img className="w-28" src="../src/assets/images/smilelink-logo-white-bg.png" alt="smilelink logo" />
         </Link>
 
         {/* Desktop Nav */}

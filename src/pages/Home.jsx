@@ -59,19 +59,20 @@ const Resume = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 p-4 md:p-8">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 p-4 md:p-8 font-medium">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <header className="bg-gradient-to-r from-blue-800 to-indigo-900 text-white rounded-2xl shadow-xl p-6 md:p-8 mb-8 overflow-hidden relative">
+        <header className="bg-gradient-to-r from-blue-900 to-indigo-800 text-white rounded-2xl shadow-xl p-6 md:p-8 mb-8 overflow-hidden relative">
           <div className="absolute top-0 right-0 w-32 h-32 bg-blue-700 rounded-bl-full opacity-20"></div>
           <div className="absolute bottom-0 left-0 w-40 h-40 bg-indigo-700 rounded-tr-full opacity-20"></div>
 
           <div className="flex flex-col md:flex-row items-center justify-between relative z-10">
             <div className="text-center md:text-left mb-6 md:mb-0">
-              <h1 className="text-3xl md:text-4xl font-bold tracking-tight">
-                ISMAIL IBADEHIN
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold">
+                ISMAIL{" "}
+                <span className="text-amber-500 tracking-wide">IBADEHIN</span>
               </h1>
-              <div className="mt-2 flex flex-wrap justify-center md:justify-start gap-2">
+              <div className="mt-4 flex flex-wrap justify-center md:justify-start gap-2">
                 <span className="bg-blue-600 bg-opacity-50 px-3 py-1 rounded-full text-sm">
                   TEACHER
                 </span>
@@ -85,16 +86,21 @@ const Resume = () => {
                   GRAPHICS DESIGNER
                 </span>
               </div>
-              <p className="mt-4 max-w-2xl text-blue-100">
+              <p className="mt-5 max-w-2xl text-blue-100">
                 I have successfully prepared over a thousand students with
-                excellent results in WAEC, JAMB, IGSCE & WEB DEVT
+                excellent results in WAEC, JAMB, IGSCE & WEB DEVT.
               </p>
             </div>
 
             <div className="relative">
-              <div className="bg-gray-200 border-2 border-dashed rounded-xl w-32 h-32 md:w-40 md:h-40 bg-gradient-to-br from-blue-400 to-indigo-500" />
-              <div className="absolute -bottom-2 -right-2 bg-yellow-500 text-gray-900 px-3 py-1 rounded-full font-bold text-sm">
-                AVAILABLE
+              <div className="border-2 border-dashed rounded-xl w-32 h-32 md:w-40 md:h-40">
+                <img
+                  src="../src/assets/images/ismail-ibadehin-pics.png"
+                  alt="ismail ibadehin"
+                />
+              </div>
+              <div className="absolute -bottom-3 -right-2 bg-yellow-500 text-gray-900 px-3 py-1 rounded-full font-bold text-sm">
+                08160175628
               </div>
             </div>
           </div>
@@ -133,9 +139,14 @@ const Resume = () => {
               <SectionCard title="SKILLS" icon={<FaTools />}>
                 <div className="space-y-5">
                   <SkillBar
-                    title="Web Design"
+                    title="HTML"
+                    percentage={95}
+                    color="from-green-500 to-rose-700"
+                  />
+                  <SkillBar
+                    title="Tailwind CSS"
                     percentage={90}
-                    color="from-blue-500 to-indigo-600"
+                    color="from-lime-600 to-teal-800"
                   />
                   <SkillBar
                     title="JavaScript"
@@ -143,9 +154,24 @@ const Resume = () => {
                     color="from-yellow-500 to-amber-600"
                   />
                   <SkillBar
+                    title="React"
+                    percentage={80}
+                    color="from-emerald-800 to-emerald-500"
+                  />
+                  <SkillBar
+                    title="Web Design"
+                    percentage={85}
+                    color="from-blue-500 to-indigo-600"
+                  />
+                  <SkillBar
                     title="Video Editing"
-                    percentage={75}
+                    percentage={90}
                     color="from-purple-500 to-pink-600"
+                  />
+                  <SkillBar
+                    title="Microsoft Office"
+                    percentage={95}
+                    color="from-red-800 to-violet-600"
                   />
                 </div>
 
@@ -199,15 +225,15 @@ const Resume = () => {
                     name="Dr. Jimoh Garba"
                     position="Senior Specialist"
                     company="Chevron Ltd., Lagos."
-                    contact="jiga@chevron.com"
-                    additionalContact="08057388759"
+                    contact="08057388759"
+                    link="jiga@chevron.com"
                   />
                 </div>
               </SectionCard>
             )}
             {/* Projects Section */}
             {(activeTab === "all" || activeTab === "projects") && (
-              <SectionCard title="ADDITIONAL INFO" icon={<FaCode />}>
+              <SectionCard title="PROJECT OVERVIEW" icon={<FaGithub />}>
                 <h3 className="text-lg font-bold mb-4 flex items-center">
                   <FaCode className="mr-2 text-indigo-600" />
                   RECENT COMPLETED PROJECT
@@ -215,10 +241,16 @@ const Resume = () => {
 
                 <div className="flex flex-col gap-6">
                   <ProjectCard
+                    name="afbaslasu.github.io"
+                    description="Portfolio Website"
+                    year="2024"
+                    color="bg-sky-800"
+                  />
+                  <ProjectCard
                     name="Cradle2Harvard"
                     description="School Website"
                     year="2021"
-                    color="bg-indigo-800"
+                    color="bg-pink-800"
                   />
                   <ProjectCard
                     name="SURESTART"
@@ -227,10 +259,39 @@ const Resume = () => {
                     color="bg-blue-800"
                   />
                   <ProjectCard
-                    name="SMILELINK INC"
+                    name="SMILELINK INC."
                     description="Educational Website"
                     year="2019"
                     color="bg-orange-800"
+                  />
+                </div>
+              </SectionCard>
+            )}
+            {(activeTab === "all" || activeTab === "projects") && (
+              <SectionCard title="ADDITIONAL INFO" icon={<FaCode />}>
+                <h3 className="text-lg font-bold mb-4 flex items-center">
+                  <FaCode className="mr-2 text-indigo-600" />
+                  MAINTENANCE PROJECT
+                </h3>
+
+                <div className="flex flex-col gap-6">
+                  <ProjectCard
+                    name="Abraham Lincoln"
+                    description="Google WorkSpace for Education"
+                    year="2023"
+                    color="bg-rose-800"
+                  />
+                  <ProjectCard
+                    name="C2Harvard"
+                    description="Google WorkSpace for Education"
+                    year="2021"
+                    color="bg-yellow-800"
+                  />
+                  <ProjectCard
+                    name="SURESTART"
+                    description="Google WorkSpace for Education"
+                    year="2020"
+                    color="bg-teal-800"
                   />
                 </div>
               </SectionCard>
@@ -245,7 +306,7 @@ const Resume = () => {
                 <div className="space-y-6">
                   <TimelineItem
                     period="2019 - 2020"
-                    title="ADVANCE WEB DESIGNING"
+                    title="ADVANCE WEB DESIGN/DEVT."
                     institution="Massachusetts Institute of Technology (Virtual)"
                   />
 
@@ -285,17 +346,17 @@ const Resume = () => {
             {/* Experience Section */}
             {(activeTab === "all" || activeTab === "experience") && (
               <SectionCard title="WORK EXPERIENCE" icon={<FaBriefcase />}>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <ExperienceCard
                     period="2022 – 2023"
-                    title="MATHS/ ICT TEACHER"
+                    title="MATHS/ICT TEACHER"
                     company="Abraham Lincoln American Academy"
                     location="Maitama, Abuja"
                   />
 
                   <ExperienceCard
                     period="2021 – 2022"
-                    title="MATHS/ ICT TEACHER"
+                    title="MATHS/ICT TEACHER"
                     company="Cradle2Harvard College"
                     location="Garki, Abuja."
                   />
@@ -337,7 +398,7 @@ const Resume = () => {
 
                   <ExperienceCard
                     period="2001 – 2003"
-                    title="MATHS/ SCIENCE TEACHER"
+                    title="MATHS/SCIENCE TEACHER"
                     company="Ikhwan Nur. & Pry. School"
                     location="Oshodi, Lagos"
                   />
@@ -486,20 +547,25 @@ const Resume = () => {
                           :
                           <ul className="ml-5 mt-2 space-y-2 list-disc">
                             <li>
-                              Relocated to Abuja in 2018 to join Surestart High
-                              School
+                              Join Surestart High School in 2018. Created the
+                              school's website and configured Google Suite for
+                              Education during the pandemic
                             </li>
+
                             <li>
-                              Created the school's website and configured Google
-                              Suite for Education during the pandemic
-                            </li>
-                            <li>
-                              Trained over{" "}
+                              Registered and configure Cradle2Harvard
+                              international school on Google Workspace for
+                              Education, and trained over{" "}
                               <strong className="text-teal-700">
                                 100 staff members
                               </strong>{" "}
-                              at Cradle2Harvard international school on Google
-                              Workspace for Education
+                              on how to seemlessly integrate Google Workspace
+                              for Education, and technology into classroom
+                            </li>
+                            <li>
+                              Migrate and reconfigured Abraham Lincoln American
+                              Academy Google Suite from Google Enterprise to
+                              Google WorkSpace for Education.
                             </li>
                           </ul>
                         </span>
@@ -516,7 +582,7 @@ const Resume = () => {
                           rel="noopener noreferrer"
                           className="ml-2 inline-flex items-center font-bold text-indigo-700 hover:text-indigo-900"
                         >
-                          github.com/afbaslasu
+                          https://portfolio-ultra-two.vercel.app/
                           <FaExternalLinkAlt className="ml-1 text-sm" />
                         </a>
                       </p>
@@ -544,7 +610,7 @@ const Resume = () => {
             <p className="text-lg mb-3">
               © {new Date().getFullYear()} Ismail Ibadehin (
               <strong className="text-blue-600 font-semibold">
-                CEO smileLink Inc.
+                CEO smileLink Inc. - 08160175628
               </strong>
               ). All rights reserved.
             </p>
@@ -688,7 +754,7 @@ const ExperienceCard = ({ period, title, company, location }) => (
   <div className="bg-gradient-to-br from-gray-50 to-white p-5 rounded-xl border border-gray-200 hover:border-blue-300 transition-all">
     <div className="flex justify-between items-start">
       <div>
-        <h3 className="font-bold text-lg">{title}</h3>
+        <h3 className="font-extrabold text-sky-800">{title}</h3>
         <p className="text-gray-700 font-medium">{company}</p>
         <p className="text-gray-500 text-sm">{location}</p>
       </div>
