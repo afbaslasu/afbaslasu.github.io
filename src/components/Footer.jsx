@@ -100,10 +100,6 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-8 text-center text-xs">
-          <p className="mt-8 mb-1 text-sm text-gray-500">
-            This site is continuously updated. Last deployment:{" "}
-            {new Date().toLocaleDateString()}
-          </p>
           <p>
             &copy; {new Date().getFullYear()} ReClone. Built with React by{" "}
             <span className="text-gray-900 dark:text-white font-semibold">
@@ -111,6 +107,10 @@ export default function Footer() {
             </span>{" "}
             (CEO smileLink Inc.).{" "}
             <span className="text-emerald-800">Tel: 081-6017-5628</span>
+          </p>
+          <p className="mt-1 text-xs text-gray-500">
+            This site is continuously updated. Last deployment:{" "}
+            {new Date().toLocaleDateString()}
           </p>
         </div>
       </div>

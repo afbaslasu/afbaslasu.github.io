@@ -1,9 +1,7 @@
-// ✅ UPDATED NAVBAR.JSX USING REACT-ICONS INSTEAD OF HEROICONS
-
+// ✅ UPDATED NAVBAR.JSX WITH ALL FIXES
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FiMenu, FiX, FiSun, FiMoon } from "react-icons/fi";
-
 
 export default function Navbar({ theme, setTheme }) {
   const [searchTerm, setSearchTerm] = useState("");
@@ -47,11 +45,16 @@ export default function Navbar({ theme, setTheme }) {
   return (
     <nav className="bg-white dark:bg-gray-900 shadow sticky top-0 z-50">
       <div className="mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+        {/* Logo - fixed for all screen sizes */}
         <Link
           to="/"
           className="text-xl font-bold text-indigo-600 dark:text-indigo-300"
         >
-          <img className="w-28" src={"/public/images/smilelink-logo-white-bg.png"} alt="smilelink logo" />
+          <img
+            className="w-20 sm:w-24 md:w-28" // Responsive sizing
+            src={"/images/smilelink-logo-white-bg.png"}
+            alt="smilelink logo"
+          />
         </Link>
 
         {/* Desktop Nav */}
@@ -91,52 +94,66 @@ export default function Navbar({ theme, setTheme }) {
           </Link>
         </div>
 
-        {/* Search */}
-        <div className="flex-1 mx-4 max-w-md relative">
-          <form onSubmit={handleSearchSubmit}>
-            <input
-              type="text"
-              placeholder="Search..."
-              className="w-full min-w-[200px] px-3 py-2 rounded-md border border-gray-400 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400"
-              value={searchTerm}
-              onChange={(e) => {
-                setSearchTerm(e.target.value);
-                setShowResults(true);
-              }}
-            />
-          </form>
-          {showResults && searchTerm && (
-            <ul className="absolute left-0 mt-1 bg-white dark:bg-gray-800 border dark:border-gray-600 rounded-md shadow-lg w-full z-10">
-              {filtered.map((p) => (
-                <li key={p.path}>
-                  <Link
-                    to={p.path}
-                    className="block px-3 py-2 hover:bg-indigo-100 dark:hover:bg-indigo-900"
-                    onClick={() => setShowResults(false)}
-                  >
-                    {p.title}
-                  </Link>
-                </li>
-              ))}
-              {filtered.length === 0 && (
-                <li className="px-3 py-2 text-gray-500">No results</li>
-              )}
-            </ul>
-          )}
-        </div>
+        {/* Search & Theme Toggle - visible only on lg+ screens */}
+        <div className="hidden lg:flex items-center space-x-4 flex-1 max-w-sm justify-end">
+          <div className="w-full relative">
+            <form onSubmit={handleSearchSubmit}>
+              <input
+                type="text"
+                placeholder="Search..."
+                className="w-full min-w-[200px] px-3 py-2 rounded-md border border-gray-400 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400"
+                value={searchTerm}
+                onChange={(e) => {
+                  setSearchTerm(e.target.value);
+                  setShowResults(true);
+                }}
+              />
+            </form>
+            {showResults && searchTerm && (
+              <ul className="absolute left-0 mt-1 bg-white dark:bg-gray-800 border dark:border-gray-600 rounded-md shadow-lg w-full z-10">
+                {filtered.map((p) => (
+                  <li key={p.path}>
+                    <Link
+                      to={p.path}
+                      className="block px-3 py-2 hover:bg-indigo-100 dark:hover:bg-indigo-900"
+                      onClick={() => setShowResults(false)}
+                    >
+                      {p.title}
+                    </Link>
+                  </li>
+                ))}
+                {filtered.length === 0 && (
+                  <li className="px-3 py-2 text-gray-500">No results</li>
+                )}
+              </ul>
+            )}
+          </div>
 
-        {/* Theme Toggle */}
-        <button
-          onClick={() =>
-            setTheme((prev) => (prev === "light" ? "dark" : "light"))
-          }
-          className="p-2 rounded-full text-gray-500 hover:text-gray-800 dark:hover:text-gray-100"
-        >
-          {theme === "light" ? <FiMoon size={20} /> : <FiSun size={20} />}
-        </button>
+          {/* Fixed theme toggle implementation */}
+          <button
+            onClick={() =>
+              setTheme((prev) => (prev === "light" ? "dark" : "light"))
+            }
+            className="p-2 rounded-full text-gray-500 hover:text-gray-800 dark:hover:text-gray-100"
+            aria-label="Toggle theme"
+          >
+            {theme === "light" ? <FiMoon size={20} /> : <FiSun size={20} />}
+          </button>
+        </div>
 
         {/* Mobile Nav Toggle */}
         <div className="md:hidden">
+          {/* Theme toggle for mobile | className=flex items-center space-x-2 */}
+          {/* <button
+            onClick={() =>
+              setTheme((prev) => (prev === "light" ? "dark" : "light"))
+            }
+            className="p-2 rounded-full text-gray-500 dark:text-gray-200"
+            aria-label="Toggle theme"
+          >
+            {theme === "light" ? <FiMoon size={20} /> : <FiSun size={20} />}
+          </button> */}
+
           <button
             onClick={() => setMenuOpen(!menuOpen)}
             className="p-2 text-gray-500 dark:text-gray-200"
@@ -152,36 +169,42 @@ export default function Navbar({ theme, setTheme }) {
           <Link
             to="/resume"
             className="block hover:text-indigo-500 dark:text-gray-200"
+            onClick={() => setMenuOpen(false)}
           >
             Resume
           </Link>
           <Link
             to="/reclone"
             className="block hover:text-indigo-500 dark:text-gray-200"
+            onClick={() => setMenuOpen(false)}
           >
             ReClone
           </Link>
           <Link
             to="/learn"
             className="block hover:text-indigo-500 dark:text-gray-200"
+            onClick={() => setMenuOpen(false)}
           >
             Learn
           </Link>
           <Link
             to="/reference"
             className="block hover:text-indigo-500 dark:text-gray-200"
+            onClick={() => setMenuOpen(false)}
           >
             Reference
           </Link>
           <Link
             to="/community"
             className="block hover:text-indigo-500 dark:text-gray-200"
+            onClick={() => setMenuOpen(false)}
           >
             Community
           </Link>
           <Link
             to="/blog"
             className="block hover:text-indigo-500 dark:text-gray-200"
+            onClick={() => setMenuOpen(false)}
           >
             Blog
           </Link>

@@ -546,14 +546,6 @@ const Resume = () => {
           className="mt-12 text-center text-gray-600 py-8 border-t border-gray-200 bg-gray-50"
         >
           <div className="max-w-4xl mx-auto px-4">
-            <p className="text-lg mb-3">
-              © {new Date().getFullYear()} Ismail Ibadehin (
-              <strong className="text-blue-600 font-semibold">
-                CEO smileLink Inc.
-              </strong>
-              ). All rights reserved.
-            </p>
-
             <motion.div
               whileHover={{ scale: 1.03 }}
               className="inline-flex items-center bg-white rounded-full px-4 py-2 shadow-sm mb-4"
@@ -622,7 +614,13 @@ const Resume = () => {
                 <span>Contact Me</span>
               </motion.a>
             </div>
-
+            <p className="text-lg mb-3">
+              © {new Date().getFullYear()} Ismail Ibadehin (
+              <strong className="text-blue-600 font-semibold">
+                CEO smileLink Inc.
+              </strong>
+              ). All rights reserved.
+            </p>
             <p className="mt-8 text-sm text-gray-500">
               This site is continuously updated. Last deployment:{" "}
               {new Date().toLocaleDateString()}
