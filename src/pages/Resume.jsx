@@ -373,7 +373,7 @@ export default function ResumePro() {
       {/* Next Arrow */}
       <div className="text-center mt-12">
         <a
-          href="https://afbaslasu.github.io/"
+          href="https://portfolioresume-iota.vercel.app"
           target="_blank"
           rel="noopener noreferrer"
           className="ml-2 inline-flex items-center font-bold text-indigo-700 hover:text-indigo-900"
