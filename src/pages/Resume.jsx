@@ -24,10 +24,18 @@ const TABS = [
 ];
 
 const SKILLS = [
+  { name: "HTML", level: 100 },
   { name: "JavaScript", level: 85 },
   { name: "React", level: 80 },
   { name: "CSS/Tailwind", level: 90 },
+  { name: "Google Workspace App", level: 95 },
+  { name: "Microsoft Office", level: 95 },
+  { name: "Adobe Illustrator", level: 90 },
   { name: "Photoshop", level: 75 },
+  { name: "Node.js", level: 90 },
+  { name: "MongoDB", level: 80 },
+  { name: "Git/Github", level: 95 },
+  { name: "Vercel/Firebase", level: 95 },
 ];
 
 export default function ResumePro() {
@@ -72,7 +80,7 @@ export default function ResumePro() {
         </div>
         <div className="inline-block bg-gradient-to-r from-indigo-600 to-blue-500 p-1 rounded-full">
           <img
-            src="/profile.jpg"
+            src="/public/images/ismail-ibadehin-pics.png"
             alt="Profile"
             className="w-32 h-32 object-cover rounded-full border-4 border-white"
           />
@@ -364,13 +372,24 @@ export default function ResumePro() {
 
       {/* Next Arrow */}
       <div className="text-center mt-12">
-        <Link
-          to="/resume-detail"
-          className="inline-flex items-center space-x-2 text-indigo-600 dark:text-indigo-400 hover:underline"
+        <a
+          href="https://afbaslasu.github.io/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="ml-2 inline-flex items-center font-bold text-indigo-700 hover:text-indigo-900"
         >
           <span>Detail Resume</span>
+          <FaArrowRight className="ml-1 text-sm" />
+        </a>
+        {/* <Link
+          to="https://portfolioresume-iota.vercel.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center space-x-2 text-indigo-600 dark:text-indigo-400 hover:underline"
+        >
+          <span>View Achievement</span>
           <FaArrowRight />
-        </Link>
+        </Link> */}
       </div>
     </div>
   );

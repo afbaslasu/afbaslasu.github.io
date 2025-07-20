@@ -21,6 +21,7 @@ import {
   FaGithub,
   FaHeart,
 } from "react-icons/fa";
+import { FaArrowsDownToLine } from "react-icons/fa6";
 
 // TechBadge component definition (moved to top level)
 const TechBadge = ({ icon, name, highlight = false }) => (
@@ -88,7 +89,7 @@ const Resume = () => {
               </div>
               <p className="mt-5 max-w-2xl text-blue-100">
                 I have successfully prepared over a thousand students with
-                excellent results in WAEC, JAMB, IGSCE & WEB DEVT.
+                excellent results in WAEC, JAMB, IGCSE & WEB DEVT.
               </p>
             </div>
 
@@ -268,7 +269,10 @@ const Resume = () => {
               </SectionCard>
             )}
             {(activeTab === "all" || activeTab === "projects") && (
-              <SectionCard title="ADDITIONAL INFO" icon={<FaCode />}>
+              <SectionCard
+                title="ADDITIONAL INFO"
+                icon={<FaArrowsDownToLine />}
+              >
                 <h3 className="text-lg font-bold mb-4 flex items-center">
                   <FaCode className="mr-2 text-indigo-600" />
                   MAINTENANCE PROJECT
@@ -577,7 +581,7 @@ const Resume = () => {
                         I invite you to explore my Portfolio for further details
                         about my achievements:
                         <a
-                          href="https://portfolio-ultra-two.vercel.app/"
+                          href="https://portfolioresume-iota.vercel.app"
                           target="_blank"
                           rel="noopener noreferrer"
                           className="ml-2 inline-flex items-center font-bold text-indigo-700 hover:text-indigo-900"
@@ -607,13 +611,13 @@ const Resume = () => {
           className="mt-12 text-center text-gray-600 py-8 border-t border-gray-200 bg-gray-50"
         >
           <div className="max-w-4xl mx-auto px-4">
-            <p className="text-lg mb-3">
+            {/* <p className="text-lg mb-3">
               © {new Date().getFullYear()} Ismail Ibadehin (
               <strong className="text-blue-600 font-semibold">
                 CEO smileLink Inc. - 08160175628
               </strong>
               ). All rights reserved.
-            </p>
+            </p> */}
 
             <motion.div
               whileHover={{ scale: 1.03 }}
@@ -663,7 +667,7 @@ const Resume = () => {
               <motion.a
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                href="mailto:your.email@example.com"
+                href="mailto:afbaslasu@gmail.com"
                 className="inline-flex items-center justify-center px-5 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors"
               >
                 <svg
@@ -684,10 +688,7 @@ const Resume = () => {
               </motion.a>
             </div>
 
-            <p className="mt-8 text-sm text-gray-500">
-              This site is continuously updated. Last deployment:{" "}
-              {new Date().toLocaleDateString()}
-            </p>
+            
           </div>
         </motion.footer>
       </div>

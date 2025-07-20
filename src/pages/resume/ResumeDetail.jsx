@@ -87,7 +87,7 @@ const Resume = () => {
               </div>
               <p className="mt-4 max-w-2xl text-blue-100">
                 I have successfully prepared over a thousand students with
-                excellent results in WAEC, JAMB, IGSCE & WEB DEVT
+                excellent results in WAEC, JAMB, IGCSE & WEB DEVT
               </p>
             </div>
 
